@@ -32,6 +32,11 @@
           <td>
             <%= a_director.last_name %>
           </td>
+          <td>
+            <a href="/backdoor/delete_director/<%= a_director.id %>">
+              Delete
+            </a>
+          </td>
         </tr>
       <% end %>
     </tbody>
