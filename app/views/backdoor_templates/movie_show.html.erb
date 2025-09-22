@@ -4,7 +4,7 @@
   <a href="/movies/<%= @the_movie.id %>" target="_blank">View Movie Details</a>
 </p>
 
-<form action="/backdoor/insert_movie" method="post">
+<form action="/backdoor/modify_movie/<%= @the_movie.id %>" method="post">
     <div>
       <label for="movie_title_box">Title</label>
       <input type="text" id="movie_title_box" name="query_title" value="<%= @the_movie.title %>">
@@ -32,7 +32,7 @@
 
     <div>
       <label for="movie_director_box">Director</label>
-      <select id="movie_director_box" name="query_director_id" value="<%= @the_director.first_name %>">
+      <select id="movie_director_box" name="query_director_id" %>">
         <option value="">Select a director...</option>
         <% Director.all.order({ :last_name => :asc }).each do |a_director| %>
           <option value="<%= a_director.id %>">
@@ -65,5 +65,5 @@
       <label for="movie_result_did_not_win_box">Did not win</label>
     </fieldset>
 
-    <button type="submit">Create Movie</button>
+    <button type="submit">Update Movie</button>
   </form>
